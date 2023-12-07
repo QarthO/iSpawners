@@ -9,7 +9,6 @@ import org.bukkit.block.CreatureSpawner;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -88,11 +87,6 @@ public class ISpMenuPage extends ISpInventoryHolder {
 //            dropsMeta.setLore(Arrays.asList(net.md_5.bungee.api.ChatColor.of("#ffaa00") + "0" + ChatColor.WHITE + " Items"));
 //            drops.setItemMeta(dropsMeta);
 //        }
-    }
-
-    @Override
-    public void onDrag(InventoryDragEvent event) {
-
     }
 
     private ItemStack getDropsItemStack(int dropsAmount){

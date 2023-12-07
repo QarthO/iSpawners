@@ -60,13 +60,13 @@ public class PageUtil {
         int pageNumber = 1;
         Collection<ItemStack> pageContent = new ArrayList<>();
         for(ItemStack item : fullItemStacks){
-            if(stacksInPage == 47){
-                ISpDropsPage page = new ISpDropsPage(viewer, title,pageNumber, 5, pageContent);
-                pages.add(page);
-                stacksInPage = 0;
-                pageNumber++;
-                pageContent = new ArrayList<>();
-            }
+//            if(stacksInPage == 47){
+//                ISpDropsPage page = new ISpDropsPage(pageNumber, 10, item, 5, );
+//                pages.add(page);
+//                stacksInPage = 0;
+//                pageNumber++;
+//                pageContent = new ArrayList<>();
+//            }
             pageContent.add(item);
             stacksInPage++;
         }

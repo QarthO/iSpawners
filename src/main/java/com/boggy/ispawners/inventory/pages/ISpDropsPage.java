@@ -18,37 +18,36 @@ public class ISpDropsPage extends ISpInventoryHolder {
     private final int PAGE_NUMBER;
     private final int TOTAL_PAGES;
 
-
     public ISpDropsPage(int pageNumber, int totalPages, ItemStack[] itemStacks, int stackSize, EntityType spawnerType)  {
         super();
 
-        this.PAGE_NUMBER = pageNumber;
-        this.TOTAL_PAGES = totalPages;
+        PAGE_NUMBER = pageNumber;
+        TOTAL_PAGES = totalPages;
 
-        this.title = (stackSize == 1 ? "" : (stackSize + " ")) + (spawnerType == null ? "Empty" : WordUtils.capitalizeFully(spawnerType.name())) + (stackSize > 1 ? " Spawners" : " Spawner");
-        this.title += " (Page " + PAGE_NUMBER + "/" + TOTAL_PAGES + ")";
+        title = (stackSize == 1 ? "" : (stackSize + " ")) + (spawnerType == null ? "Empty" : WordUtils.capitalizeFully(spawnerType.name())) + (stackSize > 1 ? " Spawners" : " Spawner");
+        title += " (Page " + PAGE_NUMBER + "/" + TOTAL_PAGES + ")";
 
-        inventory.setItem(45, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
-        inventory.setItem(46, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
-        inventory.setItem(47, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+        createInventory(54, title);
+
+//        inventory.setItem(45, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+//        inventory.setItem(46, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+//        inventory.setItem(47, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
 
         inventory.setItem(48, this.getPrevPageItem(pageNumber, totalPages));
         inventory.setItem(49, this.getSellAllItem(1));
         inventory.setItem(50, this.getNextPageItem(pageNumber, totalPages));
 
-        inventory.setItem(51, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
-        inventory.setItem(52, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
-        inventory.setItem(53, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+//        inventory.setItem(51, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+//        inventory.setItem(52, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
+//        inventory.setItem(53, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
 
-        this.inventory.setStorageContents(itemStacks);
-
+        inventory.setStorageContents(itemStacks);
     }
 
 
     @Override
     public void onClick(InventoryClickEvent e) {
         switch(e.getAction()){
-
             case PICKUP_ALL, PICKUP_HALF, PICKUP_ONE, PICKUP_SOME:
                 return;
             case DROP_ALL_CURSOR, DROP_ALL_SLOT, DROP_ONE_CURSOR, DROP_ONE_SLOT:
